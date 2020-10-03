@@ -1,0 +1,8 @@
+{
+    "env": {
+        "DB_USER": "andi",
+        "DB_PASSWORD": "asdasd",
+        "DB_NAME": "netflix",
+        "JWT_KEY": "supersecret_do_not_share"
+    }
+}

@@ -1,0 +1,51 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+  transition-timing-function: ease-in;
+  /* whatever changes in this div add a 0.5 second delay  */
+  transition: all 0.5s;
+}
+
+.nav__black {
+  background-color: #111;
+}
+
+.nav__logo {
+  position: fixed;
+  left: 20px;
+  width: 100px;
+  object-fit: contain;
+}
+
+.nav_button {
+  width: 75px;
+  top: 15px;
+  position: fixed;
+  right: 20px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-color: red;
+}
+.nav_button:hover {
+  color: black;
+  transition: all 0.3s;
+}
+a:hover {
+  text-decoration: none;
+  color: black;
+  transition: all 0.3s;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+}
