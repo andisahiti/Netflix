@@ -33,26 +33,34 @@ export const authFail = (error) => {
 
 
 export const auth = (email, password, isSignup, remember) => {
+
+    let errMsg = {
+        message: ''
+    }
+
     return dispatch => {
         const authData = {
             email: email,
-            password: password,
-            returnSecureToken: true
+            password: password
         };
-        let url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=AIzaSyA7Pf48XhZIzT_9ghf9E3zxYcL3FTJ-51c';
+        let url = `${process.env.REACT_APP_BACKEND_URL}/signup`;
+        errMsg.message = 'User with that email already exists'
         if (!isSignup) {
-            url = 'https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyA7Pf48XhZIzT_9ghf9E3zxYcL3FTJ-51c';
+            url = `${process.env.REACT_APP_BACKEND_URL}/login`;
+            errMsg.message = 'Could not login, please check your email and password'
         }
         axios.post(url, authData)
             .then(response => {
-                dispatch(authSuccess(response.data.idToken, response.data.localId));
+                console.log(response)
+                dispatch(authSuccess(response.data.token, response.data.userId));
                 if (remember) {
-                    localStorage.setItem('token', response.data.idToken);
-                    localStorage.setItem('userId', response.data.localId);
+                    localStorage.setItem('token', response.data.token);
+                    localStorage.setItem('userId', response.data.userId);
                 }
             })
             .catch(err => {
-                dispatch(authFail(err.response.data.error));
+                dispatch(authFail(errMsg.message));
+
             });
     };
 };

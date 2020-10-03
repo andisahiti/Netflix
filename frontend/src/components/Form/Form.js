@@ -49,7 +49,7 @@ const Form = (props) => {
                     <h1 className="title">{label}</h1>
                     <p style={{
                         color: 'red'
-                    }}>{props.error ? props.error.message.split('_').join(' ') : null}</p>
+                    }}>{props.error ? props.error : null}</p>
                     <div className="field">
                         <input
                             onBlur={() => {
