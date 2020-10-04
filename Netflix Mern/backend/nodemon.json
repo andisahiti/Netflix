@@ -1,8 +1,8 @@
 {
     "env": {
-        "DB_USER": "andi",
-        "DB_PASSWORD": "asdasd",
-        "DB_NAME": "netflix",
-        "JWT_KEY": "supersecret_do_not_share"
+        "DB_USER": "your database username",
+        "DB_PASSWORD": "the username password",
+        "DB_NAME": "the database name ",
+        "JWT_KEY": "a key of your choice "
     }
 }
